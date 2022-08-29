@@ -28,10 +28,22 @@ def ej3():
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
     
+    archivo = open('stock.csv', 'r')
+    stock = list(csv.DictReader(archivo))
+
+    total_tornillos = 0
+
+    for i in stock:
+        total_tornillos += int(i['tornillos'])
+    print('El total de tornillos es:', total_tornillos)
+
+    archivo.close
+
 
 
 def ej4():
     print('Ejercicios con archivos CSV 2º')
+
     archivo = 'propiedades.csv'
 
     # Realice un programa que abra el archivo CSV "propiedades.csv"
@@ -47,6 +59,31 @@ def ej4():
     # utilizando "try except", tema que se verá la clase que viene.
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+
+    
+    try:
+        archivo = open('propiedades.csv', 'r')
+        propiedades = list(csv.DictReader(archivo))
+        
+        ambiente_2 = 0
+        ambiente_3 = 0
+
+        for i in propiedades:
+            ambientes = i['ambientes']
+            if ambientes == '2':
+                ambiente_2 += 1
+            if ambiente_3 == '3':
+                ambiente_3 += 1        
+        print('Departamentos con 2 ambientes:',ambiente_2)
+        print('Departamentos con 3 ambientes:',ambiente_3)    
+    except:
+        print('No se encuentra el archivo') 
+
+        archivo.close()
+
+        #Profesor el ejercicio ej4() nose porque no me guarda los ambientes en las variables
+        #intenté de muchas formas pero nada...
+
 
 
 if __name__ == '__main__':

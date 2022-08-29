@@ -19,7 +19,9 @@ def ej1():
     
     # stock = ....
 
-    # Luego de crear el diccionario completelo
+    stock = {}
+
+        # Luego de crear el diccionario completelo
     # con el siguiente stock:
     # tornillos = 100
     # tuercas = 150
@@ -32,6 +34,11 @@ def ej1():
     # Una vez armado el diccionario imprimirlo en pantalla con print
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
+    stock ['Tornillo'] = 100
+    stock ['Tuercas'] = 150
+    stock ['Arandelas'] = 300
+
+    print('Stock disponible:', stock)
 
 
 def ej2():
@@ -67,8 +74,30 @@ def ej2():
 
     # Comenzar aquí, recuerde el identado dentro de esta funcion
 
+    while True:
+        producto = input('¿Qué producto desea agregar? ó escriba FIN para terminar:')
+        if producto.upper() == 'FIN':
+            break
+        producto = producto.lower()
+        if producto in strock:
+            while True:
+                cantidad = int(input('Ingrese la cantidad de productos:'))
+                if cantidad > 0:
+                    strock[producto] += cantidad
+                    break
+                else:
+                    print('Ingrese una cantidad válida')
+        else:
+            print('Este producto no existe, intente con otro producto') 
+
+
+        
+
+
+
 
 if __name__ == '__main__':
     print("Bienvenidos a otra clase de Inove con Python")
     ej1()
     ej2()
+
